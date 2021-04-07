@@ -14,7 +14,7 @@ from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls), # Namespace name is admin and path/url name is index for home page
-    path('stock/', include('stock.urls', namespace='stock'), name='stock'), # To use dynamic urls "{% url 'namespace:url_name' %}"
+    path('', include('stock.urls', namespace='stock'), name='stock'), # To use dynamic urls "{% url 'namespace:url_name' %}"
     # path('', lambda x: redirect('/get_quote/')),
 ]
 

@@ -14,7 +14,7 @@ app_name = 'stock'
 
 urlpatterns = [
     # path('', views.home, name='home'),
-    path('risk-return/', views.risk_return, name='risk-return'),
+    path('', views.risk_return, name='risk-return'),
     # path('get_quote/', views.get_quote, name='get_quote'),
     # path('<int:year>/', views.diary),
     # path('<int:year>/<str:name>/', views.diary),
