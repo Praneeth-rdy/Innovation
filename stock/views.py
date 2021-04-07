@@ -47,9 +47,9 @@ def risk_return(request):
         color="red",
         marker="s"
     )
-    plt.xlabel("Standard Deviation")
-    plt.ylabel("Mean Return")
-    plt.title("Risk Return Characteristics of stocks", fontsize=15)
+    plt.xlabel("Standard Deviation of day-wise percentage return")
+    plt.ylabel("Mean Day-wise Return %")
+    plt.title("Daily Risk Return Characteristics of stocks", fontsize=15)
     for stock in stocks:
         plt.annotate(
             stock.name,
