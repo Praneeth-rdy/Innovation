@@ -15,6 +15,7 @@ app_name = 'stock'
 urlpatterns = [
     # path('', views.home, name='home'),
     path('', views.risk_return, name='risk-return'),
+    path('portfolio/contact-form/', views.contact_form, name='contact_form'),
     # path('get_quote/', views.get_quote, name='get_quote'),
     # path('<int:year>/', views.diary),
     # path('<int:year>/<str:name>/', views.diary),

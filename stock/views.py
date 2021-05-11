@@ -1,6 +1,6 @@
 # Django Imports
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 # Standard Package Imports
 import statistics
@@ -63,3 +63,9 @@ def risk_return(request):
     url = urllib.parse.quote(string)
     # plt.show()
     return render(request, "risk_return.html", {"data":url})
+
+def contact_form(request):
+    data = {
+        "message": "Request Recieved"
+    }
+    return JsonResponse(data)
