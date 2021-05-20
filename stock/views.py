@@ -74,10 +74,10 @@ def contact_form(request):
     body = json.loads(body_unicode)
     # Extracting vars
     name = body['name']
-    email = body['name']
-    mobile = body['name']
-    subject = body['name']
-    message = body['name']
+    email = body['email']
+    mobile = body['mobile']
+    subject = body['subject']
+    message = body['message']
     mail_subject = 'Portfolio: New contact message'
     mail_body = render_to_string('mails/portfolio_contact_mail.html', {
         'name': name,
