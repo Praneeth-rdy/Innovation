@@ -15,6 +15,8 @@ from innovation import settings
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
 
 
 abpath = str(settings.BASE_DIR)
@@ -76,7 +78,20 @@ def contact_form(request):
     mobile = body['name']
     subject = body['name']
     message = body['name']
-    print(body["temp"])
+    mail_subject = 'Portfolio: New contact message'
+    mail_body = render_to_string('mails/portfolio_contact_mail.html', {
+        'name': name,
+        'email': email,
+        'mobile': mobile,
+        'subject': subject,
+        'message': message,
+    })
+    email = EmailMessage(
+        mail_subject, mail_body, to=[
+            'praneeth.kolanu.iitkgp@gmail.com', 'k.praneeth1199@gmail.com']
+    )
+    email.send()
+    print("Sucess")
     data = {
         "message": "Request Recieved"
     }
