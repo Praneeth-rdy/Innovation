@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'stock',
+    # pip installed apps
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -46,6 +48,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # newly added after installing django-cors-headers
+    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
 ]
 
 ROOT_URLCONF = 'innovation.urls'
@@ -133,5 +138,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'praneeth.kolanu.iitkgp@gmail.com'
+EMAIL_HOST_PASSWORD = 'inxakxrqbytdmgod'
+
+
+# CORS Settings
+# CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = [
+  'http://localhost:8000',
+  'http://127.0.0.1:8000',
+  'https://praneeth-rdy.github.io'
+]
+# CORS_ALLOW_ALL_ORIGINS = True

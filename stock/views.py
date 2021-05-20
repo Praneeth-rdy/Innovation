@@ -1,19 +1,20 @@
 # Django Imports
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Standard Package Imports
 import statistics
-import os, io, urllib, base64
+import os, io, urllib, base64, json
 
 # Project Imports
 from .models import *
+from innovation import settings
 
 # Third Party Imports
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from innovation import settings
 
 
 abpath = str(settings.BASE_DIR)
@@ -64,7 +65,18 @@ def risk_return(request):
     # plt.show()
     return render(request, "risk_return.html", {"data":url})
 
+# This decorator exempts csrf token from the frontend
+@csrf_exempt
 def contact_form(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    # Extracting vars
+    name = body['name']
+    email = body['name']
+    mobile = body['name']
+    subject = body['name']
+    message = body['name']
+    print(body["temp"])
     data = {
         "message": "Request Recieved"
     }
